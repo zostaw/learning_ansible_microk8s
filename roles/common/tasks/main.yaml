@@ -1,0 +1,3 @@
+- name: install microk8s
+
+- name: start services

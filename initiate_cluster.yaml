@@ -1,0 +1,15 @@
+---
+- name: install microk8s and start services
+  hosts: all
+  roles:
+    - common
+
+- name; initiate master
+  hosts: master
+  roles:
+    - master
+
+- name: join workers to cluster
+  hosts: workers
+  roles:
+    - workers
