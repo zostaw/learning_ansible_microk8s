@@ -14,8 +14,13 @@
     enabled: yes
 
 - name: enable snap access
-  command:
-    "ln -s /var/lib/snapd/snap /snap"
+  ansible.builtin.file:
+    src: /var/lib/snapd/snap
+    dest: /snap
+    # owner: foo
+    # group: foo
+    state: link
+
 
 # - name: centos install microk8s
 #   community.general.snap:
