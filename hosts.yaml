@@ -1,10 +1,12 @@
 all:
   children:
     master:
-      octo:
-        ansible_host: 192.168.0.172:
+      hosts:
+        octo:
+          ansible_host: 192.168.0.172
     workers:
-      adam:
-        ansible_host: 192.168.0.181:
-      eve:
-        ansible_host: 192.168.0.182:
+      hosts:
+        adam:
+          ansible_host: 192.168.0.181
+        eve:
+          ansible_host: 192.168.0.182

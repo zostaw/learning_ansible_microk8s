@@ -1,0 +1,9 @@
+- name: ubuntu install snap
+  apt:
+    name: snap
+    state: latest
+
+# - name: ubuntu install microk8s
+#   community.general.snap:
+#     name: microk8s
+#     classic: yes
