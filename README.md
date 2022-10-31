@@ -15,15 +15,15 @@ I'm using CentOS VMs installed in my home-network to form a cluster.
 
 2. Run install_microk8s playbook:
 
-```
-ansible-playbook install_microk8s.yaml -i ./hosts.yaml
-```
+    ```bash
+    ansible-playbook install_microk8s.yaml -i ./hosts.yaml
+    ```
 
 3. Run initiate_cluster playbook:
 
-```
-ansible-playbook initiate_cluster.yaml -i ./hosts.yaml
-```
+    ```bash
+    ansible-playbook initiate_cluster.yaml -i ./hosts.yaml
+    ```
 
 You can access dashboard under your https://<master node>:10443/, \
 the token can be found in /tmp/dashboard_started.txt on master node.
