@@ -1,0 +1,7 @@
+---
+- name: install microk8s and start services
+  hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - common

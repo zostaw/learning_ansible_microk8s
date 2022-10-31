@@ -1,17 +1,12 @@
 ---
-- name: install microk8s and start services
-  hosts: all
-  become: yes
-  become_method: sudo
+- name: initiate master and start dashboard
+  become: true
+  hosts: master
   roles:
-    - common
+    - master
 
-# - name: initiate master
-#   hosts: master
-#   roles:
-#     - master
-
-# - name: join workers to cluster
-#   hosts: workers
-#   roles:
-#     - workers
+- name: workers join cluster
+  become: true
+  hosts: workers
+  roles:
+    - workers

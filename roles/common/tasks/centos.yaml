@@ -12,6 +12,8 @@
   ansible.builtin.systemd:
     name: snapd.socket
     enabled: yes
+    state: started
+    daemon_reload: yes
 
 - name: enable snap access
   ansible.builtin.file:
@@ -20,9 +22,3 @@
     # owner: foo
     # group: foo
     state: link
-
-
-# - name: centos install microk8s
-#   community.general.snap:
-#     name: microk8s
-#     classic: yes

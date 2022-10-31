@@ -1,9 +1,9 @@
 all:
-  children:
+  hosts:
     master:
-      hosts:
-        octo:
-          ansible_host: 192.168.0.172
+      ansible_host: 192.168.0.172
+      join_url: ""
+  children:
     workers:
       hosts:
         adam:

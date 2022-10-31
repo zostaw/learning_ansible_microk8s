@@ -1,0 +1,4 @@
+- name: initiate dashboard
+  ansible.builtin.shell: "microk8s dashboard-proxy >> /tmp/dashboard_started.txt 2>&1 &"
+  async: 10
+  poll: 0
