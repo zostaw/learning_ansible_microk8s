@@ -25,5 +25,5 @@ I'm using CentOS VMs installed in my home-network to form a cluster.
     ansible-playbook initiate_cluster.yaml -i ./hosts.yaml
     ```
 
-You can access dashboard under your https://<master node>:10443/, \
+You can access dashboard under your https://{{ master node}}:10443/, \
 the token can be found in /tmp/dashboard_started.txt on master node.
