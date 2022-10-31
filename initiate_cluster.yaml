@@ -5,7 +5,7 @@
   roles:
     - master
 
-- name: workers join cluster
+- name: connect remaining nodes to cluster
   become: true
   hosts: workers
   roles:

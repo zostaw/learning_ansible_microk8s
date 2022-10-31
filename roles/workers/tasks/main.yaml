@@ -1,3 +1,2 @@
 - name: join cluster
   ansible.builtin.command: "{{ hostvars.master.join_url }}"
-

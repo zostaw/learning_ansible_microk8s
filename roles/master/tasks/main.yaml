@@ -4,14 +4,12 @@
 
 - name: open cluster for connection
   become: false
+  # 20 tokens to use, it should be increased for clusters extending this number
   ansible.builtin.command: "microk8s add-node --token-ttl 20"
   register: add_node
   notify:
     - "initiate dashboard"
 
-- name: Create persistent var
+- name: Update join_url variable with cluster URL
   set_fact:
     join_url: "{{ add_node.stdout_lines[1] }}"
-
-
-

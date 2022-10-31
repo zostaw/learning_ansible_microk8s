@@ -1,24 +1,25 @@
-- name: install snap
+- name: install snap on centos and ubuntu
   import_tasks: centos.yaml
   when: ansible_facts['os_family']|lower == 'redhat'
 - import_tasks: ubuntu.yaml
   when: ansible_facts['os_family']|lower == 'debian'
 
-- getent:
+- name: we need to get home directory for executing user
+  getent:
     database: passwd
     key: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
     split: ":"
-
-- name: enable snap access
-  ansible.builtin.file:
-    src: "/snap/bin/microk8s"
-    dest: "/usr/bin/microk8s"
-    state: link
 
 - name: install microk8s
   community.general.snap:
     name: microk8s
     classic: yes
+
+- name: enable microk8s access
+  ansible.builtin.file:
+    src: "/snap/bin/microk8s"
+    dest: "/usr/bin/microk8s"
+    state: link
 
 - name: Add current user to microk8s group
   ansible.builtin.user:
@@ -33,7 +34,7 @@
     recurse: yes
     owner: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-- name: Add kubectl alias for current user
+- name: Add kubectl alias
   lineinfile:
     path: "{{ getent_passwd[ansible_env.SUDO_USER][4] }}/.bashrc"
     line: "alias kubectl='microk8s kubectl'"

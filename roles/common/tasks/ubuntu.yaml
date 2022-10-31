@@ -1,4 +1,4 @@
-- name: ubuntu install snap
+- name: install snap
   apt:
     name: snap
     state: latest
